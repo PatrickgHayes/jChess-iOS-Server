@@ -26,7 +26,7 @@ class ChessService: WebSocketService {
     public func disconnected(connection: WebSocketConnection, reason: WebSocketCloseReasonCode) {
         print("A player has disconnected")
         connections.removeValue(forKey: connection.id)
-        for (connectionId, connection) in connections {
+        for (_, connection) in connections {
             connection.send(message: "Your opponent has disconnected")
         }
     }
